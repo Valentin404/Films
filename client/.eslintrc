@@ -1,0 +1,17 @@
+{
+  "parserOptions": {
+    "ecmaVersion": "2018"
+  },
+  "extends": [
+    "react-app", "eslint-config-prettier", "plugin:flowtype/recommended"
+  ],
+  "rules": {
+    "no-console": "off"
+  },
+  "env": {
+    "browser": true
+  },
+  "plugins": [
+    "flowtype"
+  ]
+}
