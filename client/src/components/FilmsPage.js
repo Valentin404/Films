@@ -19,6 +19,7 @@ class FilmsPage extends Component {
             .then(films =>
                 this.setState({films: this.sortFilms(films), isLoading: false}),
             )
+            // .then(films => this.setState({isLoading: false}))
     }
 
 
@@ -58,8 +59,8 @@ class FilmsPage extends Component {
         )
 
     render() {
-        const {films, loading} = this.state
-        const numCol = this.props.location.pathname === "/films" ? "sixteen" : "ten"
+        const {films, isLoading} = this.state;
+        const numCol = this.props.location.pathname === "/films" ? "sixteen" : "ten";
 
         return (
             <AppContext.Provider
@@ -74,10 +75,11 @@ class FilmsPage extends Component {
                             <AdminRoute  path="/films/new"
                                          user={this.props.user}
                                          render={() => (
-                                             <div className="six wide column">
+                                             <div className="six wide column" >
                                                  <FilmForm submit={this.saveFilm} film={{}} />
                                              </div>
                                          )}
+                                         htmlFor={'email'}
                             />
 
                             <AdminRoute  path="/films/edit/:_id"
@@ -89,12 +91,13 @@ class FilmsPage extends Component {
                                                  />
                                              </div>
                                          )}
+                                         htmlFor={'email'}
                             />
                         </>
 
                     <div className={`${numCol} wide column`}>
                         {
-                            loading ? (
+                            isLoading ? (
                                 <div className="ui icon message">
                                     <i className="notched circle loading icon" />
                                     <div className="content">

@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 const FormMessage = ({type, children}) => (
-    <div>
+    <div role='alert'>
     <span style={{
         color: type === "error" ? "#9a3f38" : "#6597a7",
     }}

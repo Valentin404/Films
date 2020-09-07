@@ -39,7 +39,7 @@ const LoginForm = props => {
     return (
       <form className={cls} onSubmit={handleSubmit}>
         <div className={errors.email ? "error field" : "field"}>
-          <label>Email</label>
+          <label htmlFor={'email'}>Email</label>
           <input
             type="email"
             name="email"
@@ -48,11 +48,11 @@ const LoginForm = props => {
             value={form.email}
             onChange={setFormObject(form, setForm)}
           />
-          <FormMessage>{errors.email}</FormMessage>
+          {errors.email && <FormMessage>{errors.email}</FormMessage>}
         </div>
 
         <div className={errors.password ? "error field" : "field"}>
-          <label>Password</label>
+          <label htmlFor={'password'}>Password</label>
           <input
             type="text"
             name="password"
@@ -61,10 +61,10 @@ const LoginForm = props => {
             value={form.password}
             onChange={setFormObject(form, setForm)}
           />
-          <FormMessage>{errors.password}</FormMessage>
+          {errors.password && <FormMessage>{errors.password}</FormMessage>}
         </div>
         <div className="ui fluid buttons">
-          <button className="ui button primary">Login</button>
+          <button className="ui button primary" data-testid='login-button'>Login</button>
 
           <div className="or" />
 
